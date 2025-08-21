@@ -1,0 +1,257 @@
+<!--
+Academic Personal Website - Single-file HTML template
+Filename: academic-website.html
+
+INSTRUCTIONS (for GitHub Pages):
+1. Create a new GitHub repository (e.g., `username.github.io`) or push this file into a branch of an existing repo.
+2. If using `username.github.io` as the repo name, the site will be published at https://username.github.io/ after enabling Pages in repository settings.
+3. If using a project site, enable GitHub Pages from `gh-pages` branch or `main`/`docs/` folder and visit: https://username.github.io/repo-name/
+
+Replace placeholders below (YOUR NAME, BIO, PROJECTS, PUBLICATIONS, resume.pdf, social links, etc.).
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Academic personal website - CV, projects, publications">
+  <title>Your Name — Academic</title>
+
+  <!-- Basic styling (self-contained) -->
+  <style>
+    :root{
+      --accent:#0b74de;
+      --bg:#0f1720;
+      --card:#0b1220;
+      --muted:#9aa6b2;
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1100px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: dark;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; background: linear-gradient(180deg,#071025 0%, #07172b 60%);
+      color: #e6eef6; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      display:flex; justify-content:center; padding:32px 20px; box-sizing:border-box;
+    }
+    .container{width:100%; max-width:var(--maxw);} 
+    header{display:flex; gap:20px; align-items:center; margin-bottom:28px;}
+    .avatar{width:110px; height:110px; border-radius:12px; background:linear-gradient(135deg,#0f2b4a, #05293b); display:flex;align-items:center;justify-content:center;font-size:28px;color: #dff0ff; flex-shrink:0;}
+    h1{margin:0; font-size:28px; letter-spacing:-0.5px}
+    .meta{color:var(--muted); margin-top:6px;}
+    nav{margin-left:auto;}
+    nav a{color:var(--muted); text-decoration:none; margin-left:14px; font-weight:600; font-size:14px}
+    nav a:hover{color:var(--accent)}
+
+    main{display:grid; grid-template-columns: 1fr 360px; gap:26px; align-items:start}
+    @media (max-width:980px){ main{grid-template-columns:1fr} nav{margin-top:12px} }
+
+    .card{background:var(--card); padding:18px; border-radius:12px; box-shadow: 0 6px 20px rgba(2,6,23,0.6);}
+    .section-title{display:flex; align-items:center; gap:10px; margin-bottom:12px}
+    .section-title h2{margin:0; font-size:18px}
+    .section-sub{color:var(--muted); font-size:13px}
+
+    /* About */
+    .about p{line-height:1.6; color:#dcebf9}
+    .tags{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
+    .tag{background:var(--glass); padding:6px 10px; border-radius:999px; font-size:13px; color:var(--muted)}
+
+    /* Projects */
+    .projects-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width:700px){ .projects-grid{grid-template-columns:1fr} }
+    .project{padding:12px; border-radius:8px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));}
+    .project h3{margin:0 0 6px 0; font-size:15px}
+    .project p{margin:0; color:var(--muted); font-size:13px}
+    .project .meta{margin-top:8px}
+
+    /* Publications */
+    .pub-list{list-style:none; padding:0; margin:0}
+    .pub{padding:10px 0; border-bottom:1px dashed rgba(255,255,255,0.03)}
+    .pub .title{font-weight:600}
+    .pub .venue{color:var(--muted); font-size:13px}
+
+    /* Resume */
+    .cv-actions{display:flex; gap:10px; margin-top:10px}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; background:var(--accent); color:white; text-decoration:none; font-weight:700}
+    .btn.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); font-weight:600}
+
+    /* Sidebar */
+    .side .contact-list{display:flex; flex-direction:column; gap:8px}
+    .contact-item{display:flex; gap:10px; align-items:center}
+    .socials{display:flex; gap:8px; margin-top:10px}
+    .socials a{padding:8px; border-radius:8px; background:var(--glass); font-weight:700; text-decoration:none; color:var(--muted)}
+
+    footer{margin-top:26px; color:var(--muted); font-size:13px; text-align:center}
+
+    /* print friendly CV */
+    @media print{
+      body{background:white;color:black}
+      .container{max-width:800px}
+      nav, .socials, .btn{display:none}
+      main{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">YN</div>
+      <div>
+        <h1>Your Name</h1>
+        <div class="meta">Assistant Professor / PhD Candidate — Institution Name · field of research (e.g., Bayesian statistics, machine learning)</div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#cv">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <article id="about" class="card about">
+          <div class="section-title"><h2>About Me</h2><div class="section-sub">Short bio and research interests</div></div>
+          <p>
+            I am a researcher working on statistical methodology with applications in ...
+            Replace this paragraph with a concise academic bio: current role, degrees, main research topics, and collaborators or labs.
+          </p>
+          <div class="tags">
+            <span class="tag">Bayesian Modeling</span>
+            <span class="tag">MCMC</span>
+            <span class="tag">Statistical Theory</span>
+            <span class="tag">Machine Learning</span>
+          </div>
+
+          <hr style="margin:16px 0; border:none; border-top:1px solid rgba(255,255,255,0.03)">
+
+          <div id="cv" class="section-title"><h2>Resume / CV</h2><div class="section-sub">Download or view CV</div></div>
+          <p class="section-sub">Curriculum vitae: concise overview + links to full CV and downloadable PDF.</p>
+          <div class="cv-actions" style="margin-top:10px">
+            <a class="btn" href="resume.pdf" download>Download CV (PDF)</a>
+            <a class="btn ghost" href="#cv-section">View full CV</a>
+          </div>
+
+        </article>
+
+        <article id="projects" class="card" style="margin-top:18px">
+          <div class="section-title"><h2>Projects</h2><div class="section-sub">Selected projects and links to code/demos</div></div>
+          <div class="projects-grid">
+            <div class="project">
+              <h3>Project Title One</h3>
+              <p>A short 1–2 line description of the project and its contributions.</p>
+              <div class="meta"><a href="#" style="color:var(--accent); text-decoration:none">Code / Demo</a> · <span class="section-sub">2024</span></div>
+            </div>
+
+            <div class="project">
+              <h3>Project Title Two</h3>
+              <p>Short description. Mention dataset / method used and link to repository.</p>
+              <div class="meta"><a href="#" style="color:var(--accent); text-decoration:none">Code / Paper</a> · <span class="section-sub">2023</span></div>
+            </div>
+
+            <!-- Add more project tiles as needed -->
+          </div>
+        </article>
+
+        <article id="publications" class="card" style="margin-top:18px">
+          <div class="section-title"><h2>Publications</h2><div class="section-sub">Peer-reviewed papers, preprints, and talks</div></div>
+          <ul class="pub-list">
+            <li class="pub">
+              <div class="title">Author1, Author2, <strong>Your Name</strong> (2024). Title of paper. <span class="venue">Journal / Conference</span></div>
+              <div class="venue">doi / arXiv:xxxx.xxxxx</div>
+            </li>
+            <li class="pub">
+              <div class="title">Author1 &amp; <strong>Your Name</strong> (2023). Another paper title. <span class="venue">Proceedings / Journal</span></div>
+              <div class="venue">Link · BibTeX</div>
+            </li>
+            <!-- Add more publications here. Consider grouping: Journal articles, Conference papers, Preprints, Thesis -->
+          </ul>
+
+          <div style="margin-top:12px;">
+            <a class="btn ghost" href="#publications-full">View full publication list</a>
+          </div>
+        </article>
+
+        <!-- Optional: full CV section (hidden anchor target) -->
+        <article id="cv-section" class="card" style="margin-top:18px">
+          <div class="section-title"><h2>Full CV</h2><div class="section-sub">Education · Appointments · Teaching · Service · Awards</div></div>
+          <h3>Education</h3>
+          <p class="section-sub">PhD, Subject — University (Year)<br> MSc, Subject — University (Year)</p>
+
+          <h3>Appointments</h3>
+          <p class="section-sub">Assistant Professor / Postdoc / Researcher details</p>
+
+          <h3>Teaching</h3>
+          <p class="section-sub">List of courses taught, sample syllabi links</p>
+
+        </article>
+
+      </section>
+
+      <aside class="side">
+        <div class="card">
+          <div class="section-title"><h2>Contact</h2><div class="section-sub">Get in touch</div></div>
+          <div class="contact-list">
+            <div class="contact-item"><strong>Email:</strong> <a href="mailto:you@institution.edu" style="color:var(--accent); text-decoration:none">you@institution.edu</a></div>
+            <div class="contact-item"><strong>Office:</strong> Room X, Department, Institution</div>
+            <div class="contact-item"><strong>Phone:</strong> +91 9XXXXXXXXX</div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="section-sub">Social</div>
+            <div class="socials">
+              <a href="#">GitHub</a>
+              <a href="#">Google Scholar</a>
+              <a href="#">Twitter / X</a>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div class="section-sub">Subscribe</div>
+            <form action="https://formspree.io/f/{your-id}" method="POST">
+              <input name="email" type="email" placeholder="Email address" style="width:100%; padding:8px; margin-top:8px; background:transparent; border:1px solid rgba(255,255,255,0.06); color:inherit; border-radius:8px">
+              <button type="submit" class="btn" style="width:100%; margin-top:8px">Subscribe</button>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="card" style="margin-top:18px">
+          <div class="section-title"><h2>Quick Links</h2></div>
+          <ul style="list-style:none; padding:0; margin:0; color:var(--muted);">
+            <li style="padding:8px 0"><a href="#projects" style="color:var(--muted); text-decoration:none">Projects</a></li>
+            <li style="padding:8px 0"><a href="#publications" style="color:var(--muted); text-decoration:none">Publications</a></li>
+            <li style="padding:8px 0"><a href="#cv" style="color:var(--muted); text-decoration:none">CV / Resume</a></li>
+          </ul>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Your Name · <span class="section-sub">Built with HTML • Host on GitHub Pages</span>
+    </footer>
+  </div>
+
+  <script>
+    // small interactions
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      })
+    })
+  </script>
+</body>
+</html>
