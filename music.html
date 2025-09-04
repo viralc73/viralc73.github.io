@@ -1,74 +1,49 @@
 <div class="max-w-5xl mx-auto p-6 bg-gray-900 text-white rounded-lg shadow-lg">
   <h2 class="text-3xl font-bold mb-6 text-center">🎵 My Favorite Songs</h2>
 
-  <!-- Tabs -->
-  <div class="flex justify-center space-x-6 mb-8 border-b border-gray-700">
-    <button class="tab-btn px-4 py-2 font-semibold text-gray-400 hover:text-white border-b-2 border-transparent transition" data-tab="2010s">2010s</button>
-    <button class="tab-btn px-4 py-2 font-semibold text-gray-400 hover:text-white border-b-2 border-transparent transition" data-tab="2020s">2020s</button>
-    <button class="tab-btn px-4 py-2 font-semibold text-gray-400 hover:text-white border-b-2 border-transparent transition" data-tab="2025">2025</button>
-  </div>
+ <div class="p-6 bg-gray-900 min-h-screen text-white flex justify-center items-center">
+  <div class="relative w-full max-w-6xl">
 
-  <!-- Tab Content -->
-  <div id="tab-content">
-    <!-- 2010s -->
-    <div class="tab-item hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-tab="2010s">
-      <div class="relative group cursor-pointer overflow-hidden rounded-xl shadow-xl">
-        <img src="album1.jpg" alt="Song 1" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300">
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 via-transparent p-4">
-          <h3 class="text-lg font-bold">Song Title 1</h3>
-          <p class="text-gray-300">Artist 1</p>
-        </div>
-      </div>
+    <!-- SVG Tree -->
+    <svg class="w-full h-[600px]" xmlns="http://www.w3.org/2000/svg">
+      <!-- Branches -->
+      <path d="M100,500 C200,400 300,600 400,450" stroke="#34D399" stroke-width="4" fill="transparent"/>
+      <path d="M400,450 C500,300 600,500 700,400" stroke="#3B82F6" stroke-width="4" fill="transparent"/>
+      <path d="M400,450 C450,550 550,500 600,600" stroke="#F87171" stroke-width="4" fill="transparent"/>
 
-      <div class="relative group cursor-pointer overflow-hidden rounded-xl shadow-xl">
-        <img src="album2.jpg" alt="Song 2" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300">
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 via-transparent p-4">
-          <h3 class="text-lg font-bold">Song Title 2</h3>
-          <p class="text-gray-300">Artist 2</p>
-        </div>
-      </div>
+      <!-- Nodes -->
+      <circle cx="100" cy="500" r="25" fill="#10B981" class="cursor-pointer node" data-song="Song 1 - Artist 1"/>
+      <circle cx="400" cy="450" r="25" fill="#3B82F6" class="cursor-pointer node" data-song="Song 2 - Artist 2"/>
+      <circle cx="700" cy="400" r="25" fill="#F87171" class="cursor-pointer node" data-song="Song 3 - Artist 3"/>
+      <circle cx="600" cy="600" r="25" fill="#FBBF24" class="cursor-pointer node" data-song="Song 4 - Artist 4"/>
+    </svg>
+
+    <!-- Tooltip -->
+    <div id="tooltip" class="absolute bg-gray-800 text-white px-3 py-1 rounded shadow-lg opacity-0 pointer-events-none transition-opacity">
+      Song info
     </div>
 
-    <!-- 2020s -->
-    <div class="tab-item hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-tab="2020s">
-      <div class="relative group cursor-pointer overflow-hidden rounded-xl shadow-xl">
-        <img src="album3.jpg" alt="Song 3" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300">
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 via-transparent p-4">
-          <h3 class="text-lg font-bold">Song Title 3</h3>
-          <p class="text-gray-300">Artist 3</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2025 -->
-    <div class="tab-item hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-tab="2025">
-      <div class="relative group cursor-pointer overflow-hidden rounded-xl shadow-xl">
-        <img src="album4.jpg" alt="Song 4" class="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300">
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 via-transparent p-4">
-          <h3 class="text-lg font-bold">Song Title 4</h3>
-          <p class="text-gray-300">Artist 4</p>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
 <script>
-  const tabs = document.querySelectorAll('.tab-btn');
-  const tabItems = document.querySelectorAll('.tab-item');
+  const tooltip = document.getElementById('tooltip');
+  const nodes = document.querySelectorAll('.node');
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('border-blue-500', 'text-white'));
-      tab.classList.add('border-blue-500', 'text-white');
-
-      const target = tab.dataset.tab;
-      tabItems.forEach(item => {
-        item.classList.toggle('hidden', item.dataset.tab !== target);
-      });
+  nodes.forEach(node => {
+    node.addEventListener('mouseenter', e => {
+      tooltip.textContent = e.target.dataset.song;
+      tooltip.style.left = e.clientX + 15 + 'px';
+      tooltip.style.top = e.clientY + 15 + 'px';
+      tooltip.style.opacity = 1;
+    });
+    node.addEventListener('mouseleave', () => {
+      tooltip.style.opacity = 0;
     });
   });
 
-  // Default active tab
-  tabs[0].click();
+  document.addEventListener('mousemove', e => {
+    tooltip.style.left = e.clientX + 15 + 'px';
+    tooltip.style.top = e.clientY + 15 + 'px';
+  });
 </script>
