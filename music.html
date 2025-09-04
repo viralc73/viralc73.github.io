@@ -1,45 +1,53 @@
-<div class="p-6 bg-gray-900 min-h-screen text-white flex justify-center items-center">
-  <div class="relative w-full max-w-6xl">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twisted Song Tree</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 flex justify-center items-center min-h-screen">
 
-    <!-- SVG Tree -->
-    <svg class="w-full h-[600px]" xmlns="http://www.w3.org/2000/svg">
-      <!-- Branches -->
-      <path d="M100,500 C200,400 300,600 400,450" stroke="#34D399" stroke-width="4" fill="transparent"/>
-      <path d="M400,450 C500,300 600,500 700,400" stroke="#3B82F6" stroke-width="4" fill="transparent"/>
-      <path d="M400,450 C450,550 550,500 600,600" stroke="#F87171" stroke-width="4" fill="transparent"/>
+<div class="relative w-full max-w-6xl p-6">
+  <!-- SVG Tree -->
+  <svg class="w-full h-[600px]" xmlns="http://www.w3.org/2000/svg">
+    <!-- Branches -->
+    <path d="M150,500 C250,400 350,600 450,450" stroke="#34D399" stroke-width="4" fill="transparent"/>
+    <path d="M450,450 C550,300 650,500 750,400" stroke="#3B82F6" stroke-width="4" fill="transparent"/>
+    <path d="M450,450 C500,550 600,500 650,600" stroke="#F87171" stroke-width="4" fill="transparent"/>
 
-      <!-- Nodes -->
-      <circle cx="100" cy="500" r="25" fill="#10B981" class="cursor-pointer node" data-song="Love Me Do - The Beatles"/>
-      <circle cx="400" cy="450" r="25" fill="#3B82F6" class="cursor-pointer node" data-song="Smells Like Teen Spirit - Nirvana"/>
-      <circle cx="700" cy="400" r="25" fill="#F87171" class="cursor-pointer node" data-song="get him back - Olivia Rodrigo"/>
-    </svg>
+    <!-- Nodes -->
+    <circle cx="150" cy="500" r="25" fill="#10B981" class="cursor-pointer node" data-song="Love Me Do - The Beatles"/>
+    <circle cx="450" cy="450" r="25" fill="#3B82F6" class="cursor-pointer node" data-song="Smells Like Teen Spirit - Nirvana"/>
+    <circle cx="750" cy="400" r="25" fill="#F87171" class="cursor-pointer node" data-song="get him back - Olivia Rodrigo"/>
+    <circle cx="650" cy="600" r="25" fill="#FBBF24" class="cursor-pointer node" data-song="Extra Node"/>
+  </svg>
 
-    <!-- Tooltip -->
-    <div id="tooltip" class="absolute bg-gray-800 text-white px-3 py-1 rounded shadow-lg opacity-0 pointer-events-none transition-opacity">
-      Song info
-    </div>
-
+  <!-- Tooltip -->
+  <div id="tooltip" class="absolute bg-gray-800 text-white px-3 py-1 rounded shadow-lg opacity-0 pointer-events-none transition-opacity">
+    Song info
   </div>
 </div>
 
 <script>
-  const tooltip = document.getElementById('tooltip');
-  const nodes = document.querySelectorAll('.node');
+const tooltip = document.getElementById('tooltip');
+const nodes = document.querySelectorAll('.node');
 
-  nodes.forEach(node => {
-    node.addEventListener('mouseenter', e => {
-      tooltip.textContent = e.target.dataset.song;
-      tooltip.style.left = e.clientX + 15 + 'px';
-      tooltip.style.top = e.clientY + 15 + 'px';
-      tooltip.style.opacity = 1;
-    });
-    node.addEventListener('mouseleave', () => {
-      tooltip.style.opacity = 0;
-    });
+nodes.forEach(node => {
+  node.addEventListener('mouseenter', e => {
+    tooltip.textContent = e.target.dataset.song;
+    tooltip.style.opacity = 1;
   });
+  node.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = 0;
+  });
+});
 
-  document.addEventListener('mousemove', e => {
-    tooltip.style.left = e.clientX + 15 + 'px';
-    tooltip.style.top = e.clientY + 15 + 'px';
-  });
+document.addEventListener('mousemove', e => {
+  tooltip.style.left = e.clientX + 15 + 'px';
+  tooltip.style.top = e.clientY + 15 + 'px';
+});
 </script>
+
+</body>
+</html>
