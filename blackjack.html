@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackjack</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-green-900 text-white font-sans">
+  <!-- Header -->
+  <header class="bg-black bg-opacity-70">
+    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <h1 class="text-xl font-bold">Blackjack</h1>
+      <nav class="flex gap-4 text-sm">
+        <a href="index.html" class="hover:underline">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Game Area -->
+  <main class="max-w-4xl mx-auto px-6 py-12 text-center">
+    <h2 class="text-3xl font-bold mb-6">Play Blackjack 🎲</h2>
+
+    <!-- Dealer -->
+    <div class="mb-8">
+      <h3 class="text-xl font-semibold">Dealer's Hand</h3>
+      <div id="dealer-cards" class="flex justify-center gap-4 mt-4"></div>
+      <p id="dealer-score" class="mt-2"></p>
+    </div>
+
+    <!-- Player -->
+    <div class="mb-8">
+      <h3 class="text-xl font-semibold">Your Hand</h3>
+      <div id="player-cards" class="flex justify-center gap-4 mt-4"></div>
+      <p id="player-score" class="mt-2"></p>
+    </div>
+
+    <!-- Controls -->
+    <div class="flex justify-center gap-4 mt-6">
+      <button onclick="hit()" class="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700">Hit</button>
+      <button onclick="stand()" class="px-4 py-2 bg-yellow-600 rounded-lg hover:bg-yellow-700">Stand</button>
+      <button onclick="restart()" class="px-4 py-2 bg-red-600 rounded-lg hover:bg-red-700">Restart</button>
+      <button onclick="advice()" class="px-4 py-2 bg-purple-600 rounded-lg hover:bg-purple-700">Get Advice</button>
+    </div>
+
+    <p id="message" class="mt-6 text-2xl font-bold"></p>
+    <p id="advice-text" class="mt-4 text-lg italic"></p>
+  </main>
+
+  <!-- JS Logic -->
+  <script>
+    let deck, playerHand, dealerHand, gameOver;
+    let probMatrix = null;
+
+    // Load probability matrix from JSON
+    fetch("assets/prob_matrix.json")
+      .then(response => response.json())
+      .then(data => {
+        probMatrix = data;
+        console.log("Probability matrix loaded", probMatrix);
+      });
+
+    function createDeck() {
+      const suits = ['♠', '♥', '♦', '♣'];
+      const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+      let deck = [];
+      for (let s of suits) {
+        for (let v of values) {
+          deck.push({value: v, suit: s});
+        }
+      }
+      return deck.sort(() => Math.random() - 0.5);
+    }
+
+    function getCardValue(card) {
+      if (['J', 'Q', 'K'].includes(card.value)) return 10;
+      if (card.value === 'A') return 11;
+      return parseInt(card.value);
+    }
+
+    function getHandValue(hand) {
+      let value = hand.reduce((sum, card) => sum + getCardValue(card), 0);
+      let aces = hand.filter(card => card.value === 'A').length;
+      while (value > 21 && aces > 0) {
+        value -= 10;
+        aces -= 1;
+      }
+      return value;
+    }
+
+    function renderHands() {
+      document.getElementById('player-cards').innerHTML = playerHand.map(c => `<div class="p-2 bg-white text-black rounded">${c.value}${c.suit}</div>`).join('');
+      document.getElementById('dealer-cards').innerHTML = dealerHand.map(c => `<div class="p-2 bg-white text-black rounded">${c.value}${c.suit}</div>`).join('');
+      document.getElementById('player-score').textContent = "Score: " + getHandValue(playerHand);
+      document.getElementById('dealer-score').textContent = "Score: " + getHandValue(dealerHand);
+    }
+
+    function checkGameOver() {
+      const playerValue = getHandValue(playerHand);
+      const dealerValue = getHandValue(dealerHand);
+      if (playerValue > 21) {
+        document.getElementById('message').textContent = "You Busted! Dealer Wins.";
+        gameOver = true;
+      } else if (dealerValue > 21) {
+        document.getElementById('message').textContent = "Dealer Busted! You Win!";
+        gameOver = true;
+      } else if (gameOver) {
+        if (playerValue > dealerValue) {
+          document.getElementById('message').textContent = "You Win!";
+        } else if (playerValue < dealerValue) {
+          document.getElementById('message').textContent = "Dealer Wins!";
+        } else {
+          document.getElementById('message').textContent = "It's a Tie!";
+        }
+      }
+    }
+
+    function hit() {
+      if (gameOver) return;
+      playerHand.push(deck.pop());
+      renderHands();
+      checkGameOver();
+    }
+
+    function stand() {
+      if (gameOver) return;
+      while (getHandValue(dealerHand) < 17) {
+        dealerHand.push(deck.pop());
+      }
+      renderHands();
+      gameOver = true;
+      checkGameOver();
+    }
+
+    function restart() {
+      deck = createDeck();
+      playerHand = [deck.pop(), deck.pop()];
+      dealerHand = [deck.pop(), deck.pop()];
+      gameOver = false;
+      document.getElementById('message').textContent = "";
+      document.getElementById('advice-text').textContent = "";
+      renderHands();
+    }
+
+    function advice() {
+      if (!probMatrix) {
+        document.getElementById("advice-text").textContent = "Loading probabilities...";
+        return;
+      }
+
+      const playerValue = getHandValue(playerHand);
+      const dealerUp = getCardValue(dealerHand[0]);
+
+      if (playerValue < probMatrix.length && dealerUp < probMatrix[playerValue].length) {
+        const winProbIfHit = probMatrix[playerValue][dealerUp];
+        document.getElementById("advice-text").textContent =
+          `If you Hit: win chance ≈ ${(winProbIfHit*100).toFixed(1)}%`;
+      } else {
+        document.getElementById("advice-text").textContent =
+          "No advice available for this state.";
+      }
+    }
+
+    restart();
+  </script>
+</body>
+</html>
