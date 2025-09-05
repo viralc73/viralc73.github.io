@@ -101,49 +101,61 @@
   </main>
 
   <script>
-    const tooltip = document.getElementById('tooltip');
-    const nodes = document.querySelectorAll('.node');
+  const tooltip = document.getElementById('tooltip');
+  const nodes = document.querySelectorAll('.node');
 
-    nodes.forEach(node => {
-      node.addEventListener('mouseenter', e => {
-        const { album, artist, year, info } = e.target.dataset;
-        tooltip.innerHTML = `
-          <div class="text-sm">
-            <div><strong>Album:</strong> ${album || ""}</div>
-            <div><strong>Artist:</strong> ${artist || ""}</div>
-            <div><strong>Year:</strong> ${year || ""}</div>
-            ${info ? `<div><strong>Cool Info:</strong> ${info}</div>` : ""}
-          </div>
-        `;
-        tooltip.style.opacity = 1;
-      });
-      node.addEventListener('mouseleave', () => { tooltip.style.opacity = 0; });
+  nodes.forEach(node => {
+    node.addEventListener('mouseenter', e => {
+      const { album, artist, year, info } = e.target.dataset;
+      tooltip.innerHTML = `
+        <div class="text-sm">
+          <div><strong>Album:</strong> ${album || ""}</div>
+          <div><strong>Artist:</strong> ${artist || ""}</div>
+          <div><strong>Year:</strong> ${year || ""}</div>
+          ${info ? `<div><strong>Cool Info:</strong> ${info}</div>` : ""}
+        </div>
+      `;
+      tooltip.style.opacity = 1;
     });
+    node.addEventListener('mouseleave', () => { tooltip.style.opacity = 0; });
+  });
 
-    document.addEventListener('mousemove', e => {
-      tooltip.style.left = (e.clientX + 15) + 'px';
-      tooltip.style.top  = (e.clientY + 15) + 'px';
-    });
+  document.addEventListener('mousemove', e => {
+    tooltip.style.left = (e.clientX + 15) + 'px';
+    tooltip.style.top  = (e.clientY + 15) + 'px';
+  });
 
-    // --- Generate Scaled Years (1963–2025) ---
-    const yearGroup = document.querySelector('.years');
-    const startYear = 1963;
-    const endYear = 2025;
-    const startX = 50;
-    const endX = 1650;
-    const span = endYear - startYear;
+  // --- Scaled positions ---
+  const startYear = 1963;
+  const endYear = 2025;
+  const startX = 50;
+  const endX = 1650;
+  const span = endYear - startYear;
 
-    for (let year = startYear; year <= endYear; year++) {
-      const x = startX + ((year - startYear) / span) * (endX - startX);
-      const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-      text.setAttribute("x", x.toFixed(1));
-      text.setAttribute("y", "800");
-      text.setAttribute("transform", `rotate(-90 ${x.toFixed(1)},800)`);
-      text.setAttribute("class", "fill-gray-700 text-sm");
-      text.textContent = year;
-      yearGroup.appendChild(text);
+  // Place year labels
+  const yearGroup = document.querySelector('.years');
+  for (let year = startYear; year <= endYear; year++) {
+    const x = startX + ((year - startYear) / span) * (endX - startX);
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", x.toFixed(1));
+    text.setAttribute("y", "800");
+    text.setAttribute("transform", `rotate(-90 ${x.toFixed(1)},800)`);
+    text.setAttribute("class", "fill-gray-700 text-sm");
+    text.textContent = year;
+    yearGroup.appendChild(text);
+  }
+
+  // Align albums to center on year
+  const albumNodes = document.querySelectorAll('.node');
+  albumNodes.forEach(node => {
+    const year = parseInt(node.dataset.year);
+    if (!isNaN(year)) {
+      const xCenter = startX + ((year - startYear) / span) * (endX - startX);
+      node.setAttribute("x", (xCenter - 50).toFixed(1)); // subtract half width
     }
-  </script>
+  });
+</script>
+
 
 </body>
 </html>
