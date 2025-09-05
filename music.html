@@ -58,7 +58,7 @@
 
   <!-- Tooltip -->
   <div id="tooltip" 
-     class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-xs text-sm opacity-0 pointer-events-none transition-opacity">
+     class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-sm text-sm opacity-0 pointer-events-none transition-opacity">
   Album info
 </div>
 
@@ -70,14 +70,26 @@ const nodes = document.querySelectorAll('.node');
 nodes.forEach(node => {
   node.addEventListener('mouseenter', e => {
     const album = e.target.dataset.album;
-    const info = e.target.dataset.info;
-    tooltip.innerHTML = `<strong>${album}</strong><br>${info}`;
+    const artist = e.target.dataset.artist;
+    const year = e.target.dataset.year;
+    const fact = e.target.dataset.fact;
+
+    tooltip.innerHTML = `
+      <div class="text-sm">
+        <div><strong>Album:</strong> ${album}</div>
+        <div><strong>Artist:</strong> ${artist}</div>
+        <div><strong>Year:</strong> ${year}</div>
+        ${fact ? `<div><strong>Fact:</strong> ${fact}</div>` : ""}
+      </div>
+    `;
     tooltip.style.opacity = 1;
   });
+
   node.addEventListener('mouseleave', () => {
     tooltip.style.opacity = 0;
   });
 });
+
 
 
 
