@@ -24,79 +24,67 @@
 
   <!-- Page Content -->
   <main class="max-w-7xl mx-auto px-6 py-10">
-    <!-- Title -->
     <h2 class="text-2xl font-bold mb-6 text-center">Cool Albums</h2>
 
     <!-- SVG Timeline -->
     <svg viewBox="0 0 1700 700" class="w-full h-[700px]" xmlns="http://www.w3.org/2000/svg">
-
-      <!-- Connections -->
-      <!-- With The Beatles → Nevermind -->
-      <path d="M50,400 C600,200 1100,200 1650,250" stroke="#34D399" stroke-width="3" fill="transparent"/>
-      <!-- Revolver → Pet Sounds → Sgt Pepper -->
-      <path d="M250,250 C250,200 250,150 250,100" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
-      <path d="M250,100 C450,150 650,200 850,250" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
+      
+      <!-- Branches -->
+      <!-- With The Beatles -> Nevermind -->
+      <path d="M200,400 C700,350 1200,300 1600,250" stroke="#34D399" stroke-width="3" fill="transparent"/>
+      <!-- Revolver -> Pet Sounds -> Sgt Pepper -->
+      <path d="M361,300 C361,250 361,200 361,150" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
+      <path d="M361,150 C380,180 400,190 412,200" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
 
       <!-- Album Nodes -->
-      <!-- 1963 -->
-      <image href="assets/with_the_beatles.jpg" x="0" y="400" width="100" height="100" class="cursor-pointer node"
-        data-album="All My Loving" data-artist="The Beatles" data-year="1963"
-        data-info="Best song from an underwhelming With The Beatles album from The Beatles standards."/>
-
-      <!-- 1966 (stacked) -->
-      <image href="assets/revolver.jpg" x="250" y="250" width="100" height="100" class="cursor-pointer node"
+      <image href="assets/with_the_beatles.jpg" x="200" y="400" width="100" height="100" class="cursor-pointer node"
+        data-album="All My Loving" data-artist="The Beatles" data-year="1963"/>
+      
+      <image href="assets/revolver.jpg" x="361" y="300" width="100" height="100" class="cursor-pointer node"
         data-album="Revolver" data-artist="The Beatles" data-year="1966"/>
-      <image href="assets/pet_sounds.jpg" x="250" y="100" width="100" height="100" class="cursor-pointer node"
+      <image href="assets/pet_sounds.jpg" x="361" y="150" width="100" height="100" class="cursor-pointer node"
         data-album="Pet Sounds" data-artist="Beach Boys" data-year="1966"/>
-
-      <!-- 1967 -->
-      <image href="assets/sgt_pepper.jpg" x="450" y="200" width="100" height="100" class="cursor-pointer node"
+      
+      <image href="assets/sgt_pepper.jpg" x="412" y="200" width="100" height="100" class="cursor-pointer node"
         data-album="Sgt Pepper" data-artist="The Beatles" data-year="1967"/>
-
-      <!-- 1969 -->
-      <image href="assets/abbey_road.jpg" x="650" y="350" width="100" height="100" class="cursor-pointer node"
+      
+      <image href="assets/abbey_road.jpg" x="515" y="350" width="100" height="100" class="cursor-pointer node"
         data-album="Abbey Road" data-artist="The Beatles" data-year="1969"/>
-
-      <!-- 1970 -->
-      <image href="assets/all_things_must_pass.jpg" x="850" y="400" width="100" height="100" class="cursor-pointer node"
+      
+      <image href="assets/all_things_must_pass.jpg" x="568" y="400" width="100" height="100" class="cursor-pointer node"
         data-album="All Things Must Pass" data-artist="George Harrison" data-year="1970"/>
-
-      <!-- 1971 -->
-      <image href="assets/ringo.jpg" x="1050" y="450" width="100" height="100" class="cursor-pointer node"
+      
+      <image href="assets/ringo.jpg" x="621" y="450" width="100" height="100" class="cursor-pointer node"
         data-album="Ringo" data-artist="Ringo Starr" data-year="1971"/>
-
-      <!-- 1975 -->
-      <image href="assets/band_on_the_run.jpg" x="1250" y="350" width="100" height="100" class="cursor-pointer node"
+      
+      <image href="assets/band_on_the_run.jpg" x="779" y="350" width="100" height="100" class="cursor-pointer node"
         data-album="Band on the Run" data-artist="Paul McCartney and Wings" data-year="1975"/>
-
-      <!-- 1982 -->
-      <image href="assets/tug_of_war.jpg" x="1450" y="400" width="100" height="100" class="cursor-pointer node"
+      
+      <image href="assets/tug_of_war.jpg" x="1186" y="400" width="100" height="100" class="cursor-pointer node"
         data-album="Tug of War" data-artist="Paul McCartney" data-year="1982"/>
-
-      <!-- 1991 -->
-      <image href="assets/nevermind.jpg" x="1650" y="250" width="100" height="100" class="cursor-pointer node"
-        data-album="Nevermind" data-artist="Nirvana" data-year="1991"
-        data-info="Kurt Cobain's grandmother gave him a copy of With The Beatles, and he got so inspired that he wrote About a Girl, which was released on Nirvana's previous/first album, Bleach."/>
+      
+      <image href="assets/nevermind.jpg" x="1600" y="250" width="100" height="100" class="cursor-pointer node"
+        data-album="Nevermind" data-artist="Nirvana" data-year="1991"/>
     </svg>
 
     <!-- Tooltip -->
     <div id="tooltip" 
-        class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-sm text-sm opacity-0 pointer-events-none transition-opacity">
+      class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-sm text-sm opacity-0 pointer-events-none transition-opacity">
       Album info
     </div>
 
-    <!-- Years Line -->
+    <!-- Year Labels -->
     <div class="relative mt-8">
       <svg viewBox="0 0 1700 100" class="w-full h-[100px]">
-        <text x="50" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1963</text>
-        <text x="250" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1966</text>
-        <text x="450" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1967</text>
-        <text x="650" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1969</text>
-        <text x="850" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1970</text>
-        <text x="1050" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1971</text>
-        <text x="1250" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1975</text>
-        <text x="1450" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1982</text>
-        <text x="1650" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1991</text>
+        <text x="200" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1963</text>
+        <text x="361" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1966</text>
+        <text x="412" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1967</text>
+        <text x="515" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1969</text>
+        <text x="568" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1970</text>
+        <text x="621" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1971</text>
+        <text x="779" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1975</text>
+        <text x="1186" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1982</text>
+        <text x="1600" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1991</text>
       </svg>
     </div>
 
