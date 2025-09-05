@@ -19,27 +19,40 @@
     </nav>
   </header>
 
+  <!-- Tabs -->
+  <div class="bg-white shadow mt-4">
+    <div class="max-w-6xl mx-auto px-4">
+      <ul class="flex space-x-6 border-b">
+        <li><a href="fun.html" class="py-3 border-b-2 border-blue-600 text-blue-600 font-medium">Overview</a></li>
+        <li><a href="movies.html" class="py-3 border-b-2 border-transparent hover:border-blue-600 hover:text-blue-600">Movies</a></li>
+        <li><a href="music.html" class="py-3 border-b-2 border-transparent hover:border-blue-600 hover:text-blue-600">Music</a></li>
+        <li><a href="quotes.html" class="py-3 border-b-2 border-transparent hover:border-blue-600 hover:text-blue-600">Quotes</a></li>
+      </ul>
+    </div>
+  </div>
+
   <!-- Main Content -->
-  <main class="max-w-4xl mx-auto p-6 space-y-8">
-    <h2 class="text-3xl font-semibold mb-6">Fun Stuff 🎉</h2>
+  <main class="max-w-4xl mx-auto p-6 space-y-6">
+    <h2 class="text-3xl font-semibold">Fun Stuff 🎉</h2>
+    <p class="text-lg text-gray-700">
+      Welcome to the Fun Stuff section! This is where I collect things that I enjoy—movies, music, quotes, and more.  
+      Use the tabs above to dive deeper into each category, or just hang around here for a general overview.
+    </p>
 
-    <section>
-      <h3 class="text-2xl font-semibold mb-2">Cool Movies</h3>
-      <p class="mb-2">Here’s a collection of movies I really like.</p>
-      <a href="movies.html" class="text-blue-500 hover:underline">Explore Cool Movies →</a>
-    </section>
-
-    <section>
-      <h3 class="text-2xl font-semibold mb-2">Cool Music</h3>
-      <p class="mb-2">Some awesome tracks and albums worth listening to.</p>
-      <a href="music.html" class="text-blue-500 hover:underline">Explore Cool Music →</a>
-    </section>
-
-    <section>
-      <h3 class="text-2xl font-semibold mb-2">Cool Quotes</h3>
-      <p class="mb-2">A list of my favourite quotes.</p>
-      <a href="quotes.html" class="text-blue-500 hover:underline">Explore Cool Quotes →</a>
-    </section>
+    <div class="grid md:grid-cols-3 gap-6 mt-6">
+      <a href="cool-movies.html" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">🎬 Cool Movies</h3>
+        <p class="text-gray-600">Some of my all-time favourite films and why I love them.</p>
+      </a>
+      <a href="cool-music.html" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">🎶 Cool Music</h3>
+        <p class="text-gray-600">Albums, tracks, and artists that I keep going back to.</p>
+      </a>
+      <a href="cool-quotes.html" class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">💡 Cool Quotes</h3>
+        <p class="text-gray-600">A curated list of quotes that inspire or amuse me.</p>
+      </a>
+    </div>
   </main>
 </body>
 </html>
