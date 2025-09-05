@@ -1,38 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Twisted Song Tree with Text</title>
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Albums — Viral Chitlangia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 flex justify-center items-center min-h-screen">
+<body class="min-h-screen bg-gray-50 text-gray-900 font-sans">
 
-<div class="relative w-full max-w-6xl p-6">
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Viral Chitlangia</h1>
+      <ul class="flex space-x-6 items-center">
+        <li><a href="index.html" class="hover:text-blue-500">Home</a></li>
+        <li><a href="fun.html" class="hover:text-blue-500">Fun Home</a></li>
+        <li><a href="movies.html" class="hover:text-blue-500">Cool Movies</a></li>
+        <li><a href="music.html" class="text-blue-600 font-semibold">Cool Albums</a></li>
+        <li><a href="quotes.html" class="hover:text-blue-500">Cool Quotes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Content -->
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <!-- Title -->
+    <h2 class="text-2xl font-bold mb-6 text-center">Album Timeline Tree</h2>
+
+
 
   <!-- SVG Tree -->
-  <svg class="w-full h-[600px]" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 1700 700" class="w-full h-[700px]" xmlns="http://www.w3.org/2000/svg">
     <!-- Branches -->
-    <path d="M150,500 C250,400 350,600 450,450" stroke="#34D399" stroke-width="4" fill="transparent"/>
-    <path d="M450,450 C550,300 650,500 750,400" stroke="#3B82F6" stroke-width="4" fill="transparent"/>
+    <!-- With The Beatles (1963) → Nevermind (1991) -->
+    <path d="M150,500 C400,450 800,400 1550,300" stroke="#34D399" stroke-width="3" fill="transparent"/>
 
-    <!-- Nodes as Text -->
-    <text x="150" y="500" text-anchor="middle" fill="white" class="cursor-pointer font-bold text-lg text-green-400 node" data-song="Love Me Do - The Beatles">
-      Love Me Do
-    </text>
-    <text x="450" y="450" text-anchor="middle" fill="white" class="cursor-pointer font-bold text-lg text-blue-400 node" data-song="Smells Like Teen Spirit - Nirvana">
-      Smells Like Teen Spirit
-    </text>
-    <text x="750" y="400" text-anchor="middle" fill="white" class="cursor-pointer font-bold text-lg text-red-400 node" data-song="get him back - Olivia Rodrigo">
-      get him back
-    </text>
+    <!-- Revolver (1966) → Pet Sounds (1966) → Sgt Pepper (1967) -->
+    <path d="M300,400 C350,370 400,360 300,250" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
+    <path d="M300,250 C500,320 550,310 600,290" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
+
+    <!-- Album Nodes -->
+    <image href="assets/with_the_beatles.jpg" x="150" y="500" width="100" height="100" class="cursor-pointer node" data-album="All My Loving" data-artist="The Beatles" data-year="1963" data-info="Best song from an underwhelming With The Beatles album from The Beatles standards."/>
+    <image href="assets/nevermind.jpg" x="1550" y="300" width="100" height="100" class="cursor-pointer node" data-album="Nevermind" data-artist="Nirvana" data-year="1991" data-info="Kurt Cobain's grandmother gave him a copy of With The Beatles, and he got so inspired that he wrote About a Girl, which wa released on Nirvana's previous/first album, Bleach."/>
+    <image href="assets/revolver.jpg" x="300" y="400" width="100" height="100" class="cursor-pointer node" data-album="Revolver" data-artist="The Beatles" data-year="1966"/>
+    <image href="assets/pet_sounds.jpg" x="300" y="250" width="100" height="100" class="cursor-pointer node" data-album="Pet Sounds" data-artist="Beach Boys" data-year="1966"/>
+    <image href="assets/sgt_pepper.jpg" x="600" y="290" width="100" height="100" class="cursor-pointer node" data-album="Sgt Pepper" data-artist="The Beatles" data-year="1967"/>
+
+    <!-- Standalone albums -->
+    <image href="assets/abbey_road.jpg" x="700" y="450" width="100" height="100" class="cursor-pointer node" data-album="Abbey Road" data-artist="The Beatles" data-year="1969" data-fact=""/>
+    <image href="assets/all_things_must_pass.jpg" x="850" y="500" width="100" height="100" class="cursor-pointer node" data-album="All Things Must Pass" data-artist="George Harrison" data-year="1970" data-fact=""/>
+    <image href="assets/abbey_road.jpg" x="700" y="450" width="100" height="100" class="cursor-pointer node" data-album="Abbey Road" data-artist="The Beatles" data-year="1969"/>
+    <image href="assets/all_things_must_pass.jpg" x="850" y="500" width="100" height="100" class="cursor-pointer node" data-album="All Things Must Pass" data-artist="George Harrison" data-year="1970"/>
+    <image href="assets/ringo.jpg" x="950" y="550" width="100" height="100" class="cursor-pointer node" data-album="Ringo" data-artist="Ringo Starr" data-year="1971" data-fact=""/>
+    <image href="assets/band_on_the_run.jpg" x="1150" y="450" width="100" height="100" class="cursor-pointer node" data-album="Band on the Run" data-artist="Paul McCartney and Wings" data-year="1975" data-fact=""/>
+    <image href="assets/tug_of_war.jpg" x="1350" y="500" width="100" height="100" class="cursor-pointer node" data-album="Tug of War" data-artist="Paul McCartney" data-year="1982" data-fact=""/>
+    <image href="assets/band_on_the_run.jpg" x="1150" y="450" width="100" height="100" class="cursor-pointer node" data-album="Band on the Run" data-artist="Paul McCartney and Wings" data-year="1975"/>
+    <image href="assets/tug_of_war.jpg" x="1350" y="500" width="100" height="100" class="cursor-pointer node" data-album="Tug of War" data-artist="Paul McCartney" data-year="1982"/>
+
+
   </svg>
 
   <!-- Tooltip -->
-  <div id="tooltip" class="absolute bg-gray-800 text-white px-3 py-1 rounded shadow-lg opacity-0 pointer-events-none transition-opacity">
-    Song info
-  </div>
+  <div id="tooltip" 
+     class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-sm text-sm opacity-0 pointer-events-none transition-opacity">
+  Album info
 </div>
+
 
 <script>
 const tooltip = document.getElementById('tooltip');
@@ -40,13 +73,31 @@ const nodes = document.querySelectorAll('.node');
 
 nodes.forEach(node => {
   node.addEventListener('mouseenter', e => {
-    tooltip.textContent = e.target.dataset.song;
+    const album = e.target.dataset.album;
+    const artist = e.target.dataset.artist;
+    const year = e.target.dataset.year;
+    const fact = e.target.dataset.fact;
+    const info = e.target.dataset.info;
+
+    tooltip.innerHTML = `
+      <div class="text-sm">
+        <div><strong>Album:</strong> ${album}</div>
+        <div><strong>Artist:</strong> ${artist}</div>
+        <div><strong>Year:</strong> ${year}</div>
+        ${fact ? `<div><strong>Fact:</strong> ${fact}</div>` : ""}
+        ${info ? `<div><strong>Cool Info:</strong> ${info}</div>` : ""}
+      </div>
+    `;
     tooltip.style.opacity = 1;
   });
+
   node.addEventListener('mouseleave', () => {
     tooltip.style.opacity = 0;
   });
 });
+
+
+
 
 document.addEventListener('mousemove', e => {
   tooltip.style.left = e.clientX + 15 + 'px';
