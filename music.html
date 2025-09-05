@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Albums — Viral Chitlangia</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -26,66 +26,86 @@
   <main class="max-w-7xl mx-auto px-6 py-10">
     <h2 class="text-2xl font-bold mb-6 text-center">Cool Albums</h2>
 
-    <!-- SVG Timeline -->
+    <!-- SVG Timeline (linear scaling 1963 -> 2023 with left=50 right=1650) -->
     <svg viewBox="0 0 1700 700" class="w-full h-[700px]" xmlns="http://www.w3.org/2000/svg">
-      
-      <!-- Branches -->
-      <path d="M50,400 C400,350 600,300 800,250" stroke="#34D399" stroke-width="3" fill="transparent"/>
-      <path d="M225,300 C225,250 225,200 225,150" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
-      <path d="M225,150 C240,170 260,180 280,200" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
 
-      <!-- Album Nodes -->
-      <image href="assets/with_the_beatles.jpg" x="50" y="400" width="100" height="100" class="cursor-pointer node"
-        data-album="All My Loving" data-artist="The Beatles" data-year="1963"/>
-      
-      <image href="assets/revolver.jpg" x="225" y="300" width="100" height="100" class="cursor-pointer node"
-        data-album="Revolver" data-artist="The Beatles" data-year="1966"/>
-      <image href="assets/pet_sounds.jpg" x="225" y="150" width="100" height="100" class="cursor-pointer node"
-        data-album="Pet Sounds" data-artist="Beach Boys" data-year="1966"/>
-      
-      <image href="assets/sgt_pepper.jpg" x="268" y="200" width="100" height="100" class="cursor-pointer node"
-        data-album="Sgt Pepper" data-artist="The Beatles" data-year="1967"/>
-      
-      <image href="assets/abbey_road.jpg" x="305" y="350" width="100" height="100" class="cursor-pointer node"
-        data-album="Abbey Road" data-artist="The Beatles" data-year="1969"/>
-      
-      <image href="assets/all_things_must_pass.jpg" x="332" y="400" width="100" height="100" class="cursor-pointer node"
-        data-album="All Things Must Pass" data-artist="George Harrison" data-year="1970"/>
-      
-      <image href="assets/ringo.jpg" x="359" y="450" width="100" height="100" class="cursor-pointer node"
-        data-album="Ringo" data-artist="Ringo Starr" data-year="1971"/>
-      
-      <image href="assets/band_on_the_run.jpg" x="465" y="350" width="100" height="100" class="cursor-pointer node"
-        data-album="Band on the Run" data-artist="Paul McCartney and Wings" data-year="1975"/>
-      
-      <image href="assets/tug_of_war.jpg" x="778" y="400" width="100" height="100" class="cursor-pointer node"
-        data-album="Tug of War" data-artist="Paul McCartney" data-year="1982"/>
-      
-      <image href="assets/nevermind.jpg" x="847" y="250" width="100" height="100" class="cursor-pointer node"
-        data-album="Nevermind" data-artist="Nirvana" data-year="1991"/>
-      
-      <image href="assets/guts.jpg" x="1650" y="350" width="100" height="100" class="cursor-pointer node"
-        data-album="Guts" data-artist="Olivia Rodrigo" data-year="2023"/>
+      <!-- Connections (updated to use scaled centers) -->
+      <!-- With The Beatles (1963) center: x=50  -> Nevermind (1991) center: x=797 -->
+      <path d="M50,450 C300,400 900,350 797,300" stroke="#34D399" stroke-width="3" fill="transparent"/>
+
+      <!-- Revolver (1966) center: x=130  -> Pet Sounds (1966) center: x=130 (vertical) -->
+      <path d="M130,350 C130,320 130,290 130,200" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
+
+      <!-- Pet Sounds (1966) center: x=130 -> Sgt Pepper (1967) center: x=157 -->
+      <path d="M130,200 C145,210 152,225 157,250" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
+
+      <!-- Album Nodes
+           center_x values computed by:
+             center_x = 50 + (year - 1963)/60 * 1600
+           image x = center_x - 50  (image width = 100)
+      -->
+
+      <!-- 1963 -->
+      <image href="assets/with_the_beatles.jpg" x="0"   y="400" width="100" height="100"
+             class="cursor-pointer node" data-album="All My Loving" data-artist="The Beatles" data-year="1963"/>
+
+      <!-- 1966 (stacked: Revolver below, Pet Sounds above) -->
+      <image href="assets/revolver.jpg"      x="80"  y="300" width="100" height="100"
+             class="cursor-pointer node" data-album="Revolver" data-artist="The Beatles" data-year="1966"/>
+      <image href="assets/pet_sounds.jpg"    x="80"  y="150" width="100" height="100"
+             class="cursor-pointer node" data-album="Pet Sounds" data-artist="Beach Boys" data-year="1966"/>
+
+      <!-- 1967 -->
+      <image href="assets/sgt_pepper.jpg"    x="107" y="200" width="100" height="100"
+             class="cursor-pointer node" data-album="Sgt Pepper" data-artist="The Beatles" data-year="1967"/>
+
+      <!-- 1969 -->
+      <image href="assets/abbey_road.jpg"    x="160" y="350" width="100" height="100"
+             class="cursor-pointer node" data-album="Abbey Road" data-artist="The Beatles" data-year="1969"/>
+
+      <!-- 1970 -->
+      <image href="assets/all_things_must_pass.jpg" x="187" y="400" width="100" height="100"
+             class="cursor-pointer node" data-album="All Things Must Pass" data-artist="George Harrison" data-year="1970"/>
+
+      <!-- 1971 -->
+      <image href="assets/ringo.jpg"         x="213" y="450" width="100" height="100"
+             class="cursor-pointer node" data-album="Ringo" data-artist="Ringo Starr" data-year="1971"/>
+
+      <!-- 1975 -->
+      <image href="assets/band_on_the_run.jpg" x="320" y="350" width="100" height="100"
+             class="cursor-pointer node" data-album="Band on the Run" data-artist="Paul McCartney and Wings" data-year="1975"/>
+
+      <!-- 1982 -->
+      <image href="assets/tug_of_war.jpg"    x="507" y="400" width="100" height="100"
+             class="cursor-pointer node" data-album="Tug of War" data-artist="Paul McCartney" data-year="1982"/>
+
+      <!-- 1991 -->
+      <image href="assets/nevermind.jpg"     x="747" y="250" width="100" height="100"
+             class="cursor-pointer node" data-album="Nevermind" data-artist="Nirvana" data-year="1991"/>
+
+      <!-- 2023 -->
+      <image href="assets/guts.jpg"          x="1600" y="350" width="100" height="100"
+             class="cursor-pointer node" data-album="Guts" data-artist="Olivia Rodrigo" data-year="2023"/>
     </svg>
 
-    <!-- Tooltip -->
+    <!-- Tooltip (unchanged behavior) -->
     <div id="tooltip" 
-      class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-sm text-sm opacity-0 pointer-events-none transition-opacity">
+         class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-sm text-sm opacity-0 pointer-events-none transition-opacity">
       Album info
     </div>
 
-    <!-- Year Labels -->
+    <!-- Year Labels (aligned to same computed centers) -->
     <div class="relative mt-8">
       <svg viewBox="0 0 1700 100" class="w-full h-[100px]">
-        <text x="50" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1963</text>
-        <text x="225" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1966</text>
-        <text x="268" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1967</text>
-        <text x="305" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1969</text>
-        <text x="332" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1970</text>
-        <text x="359" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1971</text>
-        <text x="465" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1975</text>
-        <text x="778" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1982</text>
-        <text x="847" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1991</text>
+        <text x="50"   y="50" text-anchor="middle" class="fill-gray-700 text-sm">1963</text>
+        <text x="130"  y="50" text-anchor="middle" class="fill-gray-700 text-sm">1966</text>
+        <text x="157"  y="50" text-anchor="middle" class="fill-gray-700 text-sm">1967</text>
+        <text x="210"  y="50" text-anchor="middle" class="fill-gray-700 text-sm">1969</text>
+        <text x="237"  y="50" text-anchor="middle" class="fill-gray-700 text-sm">1970</text>
+        <text x="263"  y="50" text-anchor="middle" class="fill-gray-700 text-sm">1971</text>
+        <text x="370"  y="50" text-anchor="middle" class="fill-gray-700 text-sm">1975</text>
+        <text x="557"  y="50" text-anchor="middle" class="fill-gray-700 text-sm">1982</text>
+        <text x="797"  y="50" text-anchor="middle" class="fill-gray-700 text-sm">1991</text>
         <text x="1650" y="50" text-anchor="middle" class="fill-gray-700 text-sm">2023</text>
       </svg>
     </div>
@@ -98,10 +118,11 @@
 
     nodes.forEach(node => {
       node.addEventListener('mouseenter', e => {
-        const album = e.target.dataset.album;
-        const artist = e.target.dataset.artist;
-        const year = e.target.dataset.year;
-        const info = e.target.dataset.info;
+        // dataset lives on the <image>, so e.target is fine
+        const album = e.target.dataset.album || '';
+        const artist = e.target.dataset.artist || '';
+        const year = e.target.dataset.year || '';
+        const info = e.target.dataset.info || '';
 
         tooltip.innerHTML = `
           <div class="text-sm">
@@ -120,8 +141,8 @@
     });
 
     document.addEventListener('mousemove', e => {
-      tooltip.style.left = e.clientX + 15 + 'px';
-      tooltip.style.top = e.clientY + 15 + 'px';
+      tooltip.style.left = (e.clientX + 15) + 'px';
+      tooltip.style.top  = (e.clientY + 15) + 'px';
     });
   </script>
 
