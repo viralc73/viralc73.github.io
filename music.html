@@ -29,16 +29,6 @@
     <!-- SVG Timeline (linear scaling 1963 -> 2023 with left=50 right=1650) -->
     <svg viewBox="0 0 1700 700" class="w-full h-[700px]" xmlns="http://www.w3.org/2000/svg">
 
-      <!-- Connections (updated to use scaled centers) -->
-      <!-- With The Beatles (1963) center: x=50  -> Nevermind (1991) center: x=797 -->
-      <path d="M50,450 C300,400 900,350 797,300" stroke="#34D399" stroke-width="3" fill="transparent"/>
-
-      <!-- Revolver (1966) center: x=130  -> Pet Sounds (1966) center: x=130 (vertical) -->
-      <path d="M130,350 C130,320 130,290 130,200" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
-
-      <!-- Pet Sounds (1966) center: x=130 -> Sgt Pepper (1967) center: x=157 -->
-      <path d="M130,200 C145,210 152,225 157,250" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
-
       <!-- Album Nodes
            center_x values computed by:
              center_x = 50 + (year - 1963)/60 * 1600
