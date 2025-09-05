@@ -27,77 +27,50 @@
     <!-- Title -->
     <h2 class="text-2xl font-bold mb-6 text-center">Cool Albums</h2>
 
+    <!-- SVG Tree -->
+    <svg viewBox="0 0 1700 700" class="w-full h-[700px]" xmlns="http://www.w3.org/2000/svg">
+      <!-- Branches -->
+      <path d="M150,500 C400,450 800,400 1550,300" stroke="#34D399" stroke-width="3" fill="transparent"/>
+      <path d="M300,400 C350,370 400,360 300,250" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
+      <path d="M300,250 C500,320 550,310 600,290" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
 
-  
-  <!-- SVG Tree -->
-  <svg viewBox="0 0 1700 700" class="w-full h-[700px]" xmlns="http://www.w3.org/2000/svg">
-    <!-- Branches -->
-    <!-- With The Beatles (1963) → Nevermind (1991) -->
-    <path d="M150,500 C400,450 800,400 1550,300" stroke="#34D399" stroke-width="3" fill="transparent"/>
-    
-    <!-- Revolver (1966) → Pet Sounds (1966) → Sgt Pepper (1967) -->
-    <path d="M300,400 C350,370 400,360 300,250" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
-    <path d="M300,250 C500,320 550,310 600,290" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
+      <!-- Album Nodes -->
+      <g class="cursor-pointer node" data-album="All My Loving" data-artist="The Beatles" data-year="1963" data-info="Best song from an underwhelming With The Beatles album from The Beatles standards.">
+        <image href="assets/with_the_beatles.jpg" x="150" y="500" width="100" height="100"/>
+        <text x="200" y="615" text-anchor="middle" class="fill-gray-700 text-sm font-semibold">1963</text>
+      </g>
 
-    <!-- Album Nodes -->
-    <image href="assets/with_the_beatles.jpg" x="150" y="500" width="100" height="100" class="cursor-pointer node" data-album="All My Loving" data-artist="The Beatles" data-year="1963" data-info="Best song from an underwhelming With The Beatles album from The Beatles standards."/>
-    <image href="assets/nevermind.jpg" x="1550" y="300" width="100" height="100" class="cursor-pointer node" data-album="Nevermind" data-artist="Nirvana" data-year="1991" data-info="Kurt Cobain's grandmother gave him a copy of With The Beatles, and he got so inspired that he wrote About a Girl, which was released on Nirvana's previous/first album, Bleach."/>
-    <image href="assets/revolver.jpg" x="300" y="400" width="100" height="100" class="cursor-pointer node" data-album="Revolver" data-artist="The Beatles" data-year="1966"/>
-    <image href="assets/pet_sounds.jpg" x="300" y="250" width="100" height="100" class="cursor-pointer node" data-album="Pet Sounds" data-artist="Beach Boys" data-year="1966"/>
-    <image href="assets/sgt_pepper.jpg" x="600" y="290" width="100" height="100" class="cursor-pointer node" data-album="Sgt Pepper" data-artist="The Beatles" data-year="1967"/>
-    
-    <!-- Standalone albums -->
-    <image href="assets/abbey_road.jpg" x="700" y="450" width="100" height="100" class="cursor-pointer node" data-album="Abbey Road" data-artist="The Beatles" data-year="1969"/>
-    <image href="assets/all_things_must_pass.jpg" x="850" y="500" width="100" height="100" class="cursor-pointer node" data-album="All Things Must Pass" data-artist="George Harrison" data-year="1970"/>
-    <image href="assets/ringo.jpg" x="950" y="550" width="100" height="100" class="cursor-pointer node" data-album="Ringo" data-artist="Ringo Starr" data-year="1971" data-fact=""/>
-    <image href="assets/band_on_the_run.jpg" x="1150" y="450" width="100" height="100" class="cursor-pointer node" data-album="Band on the Run" data-artist="Paul McCartney and Wings" data-year="1975"/>
-    <image href="assets/tug_of_war.jpg" x="1350" y="500" width="100" height="100" class="cursor-pointer node" data-album="Tug of War" data-artist="Paul McCartney" data-year="1982"/>
+      <g class="cursor-pointer node" data-album="Nevermind" data-artist="Nirvana" data-year="1991" data-info="Kurt Cobain's grandmother gave him a copy of With The Beatles, and he got so inspired that he wrote About a Girl, which was released on Nirvana's previous/first album, Bleach.">
+        <image href="assets/nevermind.jpg" x="1550" y="300" width="100" height="100"/>
+        <text x="1600" y="415" text-anchor="middle" class="fill-gray-700 text-sm font-semibold">1991</text>
+      </g>
 
+      <g class="cursor-pointer node" data-album="Revolver" data-artist="The Beatles" data-year="1966">
+        <image href="assets/revolver.jpg" x="300" y="400" width="100" height="100"/>
+        <text x="350" y="515" text-anchor="middle" class="fill-gray-700 text-sm font-semibold">1966</text>
+      </g>
 
-  </svg>
+      <g class="cursor-pointer node" data-album="Pet Sounds" data-artist="Beach Boys" data-year="1966">
+        <image href="assets/pet_sounds.jpg" x="300" y="250" width="100" height="100"/>
+        <text x="350" y="365" text-anchor="middle" class="fill-gray-700 text-sm font-semibold">1966</text>
+      </g>
 
-  <!-- Tooltip -->
-  <div id="tooltip" 
-     class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-sm text-sm opacity-0 pointer-events-none transition-opacity">
-  Album info
-</div>
+      <g class="cursor-pointer node" data-album="Sgt Pepper" data-artist="The Beatles" data-year="1967">
+        <image href="assets/sgt_pepper.jpg" x="600" y="290" width="100" height="100"/>
+        <text x="650" y="405" text-anchor="middle" class="fill-gray-700 text-sm font-semibold">1967</text>
+      </g>
 
+      <!-- Standalone albums -->
+      <g class="cursor-pointer node" data-album="Abbey Road" data-artist="The Beatles" data-year="1969">
+        <image href="assets/abbey_road.jpg" x="700" y="450" width="100" height="100"/>
+        <text x="750" y="565" text-anchor="middle" class="fill-gray-700 text-sm font-semibold">1969</text>
+      </g>
 
-<script>
-const tooltip = document.getElementById('tooltip');
-const nodes = document.querySelectorAll('.node');
+      <g class="cursor-pointer node" data-album="All Things Must Pass" data-artist="George Harrison" data-year="1970">
+        <image href="assets/all_things_must_pass.jpg" x="850" y="500" width="100" height="100"/>
+        <text x="900" y="615" text-anchor="middle" class="fill-gray-700 text-sm font-semibold">1970</text>
+      </g>
 
-nodes.forEach(node => {
-  node.addEventListener('mouseenter', e => {
-    const album = e.target.dataset.album;
-    const artist = e.target.dataset.artist;
-    const year = e.target.dataset.year;
-    const info = e.target.dataset.info;
-
-    tooltip.innerHTML = `
-      <div class="text-sm">
-        <div><strong>Album:</strong> ${album}</div>
-        <div><strong>Artist:</strong> ${artist}</div>
-        <div><strong>Year:</strong> ${year}</div>
-        ${info ? `<div><strong>Cool Info:</strong> ${info}</div>` : ""}
-      </div>
-    `;
-    tooltip.style.opacity = 1;
-  });
-
-  node.addEventListener('mouseleave', () => {
-    tooltip.style.opacity = 0;
-  });
-});
-
-
-
-
-document.addEventListener('mousemove', e => {
-  tooltip.style.left = e.clientX + 15 + 'px';
-  tooltip.style.top = e.clientY + 15 + 'px';
-});
-</script>
-
-</body>
-</html>
+      <g class="cursor-pointer node" data-album="Ringo" data-artist="Ringo Starr" data-year="1971">
+        <image href="assets/ringo.jpg" x="950" y="550" width="100" height="100"/>
+        <text x="1000" y="665" text-anchor="middle"
