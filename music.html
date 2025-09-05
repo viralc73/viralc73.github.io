@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Album Timeline Tree</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 flex justify-center items-center min-h-screen">
+
+<div class="relative w-full max-w-7xl p-6">
+
+  <!-- SVG Tree -->
+  <svg class="w-full h-[600px]" xmlns="http://www.w3.org/2000/svg">
+    <!-- Branches -->
+    <!-- With The Beatles → Nevermind -->
+    <path d="M100,500 C200,450 300,400 400,300" stroke="#34D399" stroke-width="3" fill="transparent"/>
+    
+    <!-- Revolver → Pet Sounds → Sgt Pepper -->
+    <path d="M200,400 C250,350 300,350 350,300" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
+    <path d="M350,300 C380,270 400,270 450,250" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
+
+    <!-- Album Nodes -->
+    <image href="with_the_beatles.jpg" x="100" y="500" width="80" height="80" class="cursor-pointer node" data-album="With The Beatles (1963)"/>
+    <image href="nevermind.jpg" x="400" y="300" width="80" height="80" class="cursor-pointer node" data-album="Nevermind (1991)"/>
+    
+    <image href="revolver.jpg" x="200" y="400" width="80" height="80" class="cursor-pointer node" data-album="Revolver (1966)"/>
+    <image href="pet_sounds.jpg" x="350" y="300" width="80" height="80" class="cursor-pointer node" data-album="Pet Sounds (1966)"/>
+    <image href="sgt_pepper.jpg" x="450" y="250" width="80" height="80" class="cursor-pointer node" data-album="Sgt Pepper (1967)"/>
+    
+    <!-- Standalone albums -->
+    <image href="abbey_road.jpg" x="550" y="400" width="80" height="80" class="cursor-pointer node" data-album="Abbey Road (1969)"/>
+    <image href="all_things_must_pass.jpg" x="650" y="450" width="80" height="80" class="cursor-pointer node" data-album="All Things Must Pass (1970)"/>
+    <image href="ringo.jpg" x="750" y="500" width="80" height="80" class="cursor-pointer node" data-album="Ringo (1971)"/>
+    <image href="band_on_the_run.jpg" x="850" y="400" width="80" height="80" class="cursor-pointer node" data-album="Band on the Run (1975)"/>
+    <image href="tug_of_war.jpg" x="950" y="450" width="80" height="80" class="cursor-pointer node" data-album="Tug of War (1982)"/>
+  </svg>
+
+  <!-- Tooltip -->
+  <div id="tooltip" class="absolute bg-gray-800 text-white px-3 py-1 rounded shadow-lg opacity-0 pointer-events-none transition-opacity">
+    Album info
+  </div>
+</div>
+
+<script>
+const tooltip = document.getElementById('tooltip');
+const nodes = document.querySelectorAll('.node');
+
+nodes.forEach(node => {
+  node.addEventListener('mouseenter', e => {
+    tooltip.textContent = e.target.dataset.album;
+    tooltip.style.opacity = 1;
+  });
+  node.addEventListener('mouseleave', () => {
+    tooltip.style.opacity = 0;
+  });
+});
+
+document.addEventListener('mousemove', e => {
+  tooltip.style.left = e.clientX + 15 + 'px';
+  tooltip.style.top = e.clientY + 15 + 'px';
+});
+</script>
+
+</body>
+</html>
