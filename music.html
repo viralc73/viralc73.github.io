@@ -40,8 +40,8 @@
     <path d="M300,250 C500,320 550,310 600,290" stroke="#3B82F6" stroke-width="3" fill="transparent"/>
 
     <!-- Album Nodes -->
-    <image href="assets/with_the_beatles.jpg" x="150" y="500" width="100" height="100" class="cursor-pointer node" data-album="With The Beatles (1963)"/>
-    <image href="assets/nevermind.jpg" x="1550" y="300" width="100" height="100" class="cursor-pointer node" data-album="Nevermind (1991)"/>
+    <image href="assets/with_the_beatles.jpg" x="150" y="500" width="100" height="100" class="cursor-pointer node" data-album="All My Loving(1963)" data-info="Best song from an underwhelming With The Beatles album from The Beatles standards."/>
+    <image href="assets/nevermind.jpg" x="1550" y="300" width="100" height="100" class="cursor-pointer node" data-album="Nevermind (1991)" data-info="Kurt Cobain's grandmother gave him a copy of With The Beatles, and he got so inspired that he wrote About a Girl, which wa released on Nirvana's previous/first album, Bleach."/>
     <image href="assets/revolver.jpg" x="300" y="400" width="100" height="100" class="cursor-pointer node" data-album="Revolver (1966)"/>
     <image href="assets/pet_sounds.jpg" x="300" y="250" width="100" height="100" class="cursor-pointer node" data-album="Pet Sounds (1966)"/>
     <image href="assets/sgt_pepper.jpg" x="600" y="290" width="100" height="100" class="cursor-pointer node" data-album="Sgt Pepper (1967)"/>
@@ -55,10 +55,11 @@
   </svg>
 
   <!-- Tooltip -->
-  <div id="tooltip" class="absolute bg-gray-800 text-white px-3 py-1 rounded shadow-lg opacity-0 pointer-events-none transition-opacity">
-    Album info
-  </div>
+  <div id="tooltip" 
+     class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-xs text-sm opacity-0 pointer-events-none transition-opacity">
+  Album info
 </div>
+
 
 <script>
 const tooltip = document.getElementById('tooltip');
@@ -66,13 +67,17 @@ const nodes = document.querySelectorAll('.node');
 
 nodes.forEach(node => {
   node.addEventListener('mouseenter', e => {
-    tooltip.textContent = e.target.dataset.album;
+    const album = e.target.dataset.album;
+    const info = e.target.dataset.info;
+    tooltip.innerHTML = `<strong>${album}</strong><br>${info}`;
     tooltip.style.opacity = 1;
   });
   node.addEventListener('mouseleave', () => {
     tooltip.style.opacity = 0;
   });
 });
+
+
 
 document.addEventListener('mousemove', e => {
   tooltip.style.left = e.clientX + 15 + 'px';
