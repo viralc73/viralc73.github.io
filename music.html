@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Albums — Viral Chitlangia</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -24,92 +24,93 @@
 
   <!-- Page Content -->
   <main class="max-w-7xl mx-auto px-6 py-10">
-    <!-- Title -->
     <h2 class="text-2xl font-bold mb-6 text-center">Cool Albums</h2>
 
     <!-- SVG Timeline -->
-    <svg viewBox="0 0 1700 800" class="w-full h-[800px]" xmlns="http://www.w3.org/2000/svg">
-      <!-- Baseline -->
-      <line x1="50" y1="700" x2="1650" y2="700" stroke="#9CA3AF" stroke-width="2"/>
+    <svg viewBox="0 0 1700 700" class="w-full h-[700px]" xmlns="http://www.w3.org/2000/svg">
 
-      <!-- Albums -->
-      <!-- Helper: y position stacking for multiple albums in same year -->
-      <!-- Beatles & early -->
-      <image href="assets/with_the_beatles.jpg" x="50" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="With The Beatles" data-artist="The Beatles" data-year="1963"
-        data-info="Best song from an underwhelming With The Beatles album from The Beatles standards."/>
+      <!-- Album Nodes -->
+      <image href="assets/with_the_beatles.jpg" x="50" y="400" width="100" height="100"
+             class="cursor-pointer node" data-album="With The Beatles" data-artist="The Beatles" data-year="1963"/>
 
-      <image href="assets/revolver.jpg" x="287" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Revolver" data-artist="The Beatles" data-year="1966"/>
-      <image href="assets/pet_sounds.jpg" x="287" y="480" width="100" height="100" class="cursor-pointer node"
-        data-album="Pet Sounds" data-artist="Beach Boys" data-year="1966"/>
-      <image href="assets/sgt_pepper.jpg" x="314" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Sgt Pepper" data-artist="The Beatles" data-year="1967"/>
-      <image href="assets/abbey_road.jpg" x="355" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Abbey Road" data-artist="The Beatles" data-year="1969"/>
+      <image href="assets/revolver.jpg" x="130" y="300" width="100" height="100"
+             class="cursor-pointer node" data-album="Revolver" data-artist="The Beatles" data-year="1966"/>
+      <image href="assets/pet_sounds.jpg" x="130" y="450" width="100" height="100"
+             class="cursor-pointer node" data-album="Pet Sounds" data-artist="Beach Boys" data-year="1966"/>
 
-      <!-- McCartney solo -->
-      <image href="assets/mccartney.jpg" x="369" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="McCartney" data-artist="Paul McCartney" data-year="1970"/>
-      <image href="assets/ram.jpg" x="383" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Ram" data-artist="Paul McCartney" data-year="1971"/>
-      <image href="assets/ringo.jpg" x="397" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Ringo" data-artist="Ringo Starr" data-year="1971"/>
-      <image href="assets/all_things_must_pass.jpg" x="383" y="480" width="100" height="100" class="cursor-pointer node"
-        data-album="All Things Must Pass" data-artist="George Harrison" data-year="1970"/>
-      <image href="assets/band_on_the_run.jpg" x="425" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Band on the Run" data-artist="Paul McCartney and Wings" data-year="1973"/>
-      <image href="assets/venus_and_mars.jpg" x="453" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Venus and Mars" data-artist="Paul McCartney and Wings" data-year="1975"/>
+      <image href="assets/sgt_pepper.jpg" x="157" y="200" width="100" height="100"
+             class="cursor-pointer node" data-album="Sgt Pepper" data-artist="The Beatles" data-year="1967"/>
 
-      <image href="assets/tug_of_war.jpg" x="565" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Tug of War" data-artist="Paul McCartney" data-year="1982"/>
+      <image href="assets/abbey_road.jpg" x="210" y="350" width="100" height="100"
+             class="cursor-pointer node" data-album="Abbey Road" data-artist="The Beatles" data-year="1969"/>
 
-      <!-- Nirvana -->
-      <image href="assets/nevermind.jpg" x="1237" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Nevermind" data-artist="Nirvana" data-year="1991"
-        data-info="Kurt Cobain’s grandmother gave him a copy of With The Beatles, inspiring About a Girl."/>
+      <image href="assets/mccartney.jpg" x="237" y="150" width="100" height="100"
+             class="cursor-pointer node" data-album="McCartney" data-artist="Paul McCartney" data-year="1970"/>
+      <image href="assets/all_things_must_pass.jpg" x="237" y="300" width="100" height="100"
+             class="cursor-pointer node" data-album="All Things Must Pass" data-artist="George Harrison" data-year="1970"/>
 
-      <image href="assets/off_the_ground.jpg" x="1251" y="480" width="100" height="100" class="cursor-pointer node"
-        data-album="Off the Ground" data-artist="Paul McCartney" data-year="1993"/>
+      <image href="assets/ringo.jpg" x="263" y="400" width="100" height="100"
+             class="cursor-pointer node" data-album="Ringo" data-artist="Ringo Starr" data-year="1971"/>
+      <image href="assets/ram.jpg" x="263" y="550" width="100" height="100"
+             class="cursor-pointer node" data-album="Ram" data-artist="Paul McCartney" data-year="1971"/>
 
-      <!-- Modern era -->
-      <image href="assets/born_to_die.jpg" x="1460" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Born to Die" data-artist="Lana Del Rey" data-year="2012"/>
-      <image href="assets/new.jpg" x="1474" y="480" width="100" height="100" class="cursor-pointer node"
-        data-album="New" data-artist="Paul McCartney" data-year="2013"/>
+      <image href="assets/band_on_the_run.jpg" x="316" y="250" width="100" height="100"
+             class="cursor-pointer node" data-album="Band on the Run" data-artist="Paul McCartney and Wings" data-year="1973"/>
 
-      <image href="assets/sour.jpg" x="1596" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Sour" data-artist="Olivia Rodrigo" data-year="2021"/>
-      <image href="assets/guts.jpg" x="1624" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Guts" data-artist="Olivia Rodrigo" data-year="2023"/>
-      <image href="assets/sns.jpg" x="1638" y="600" width="100" height="100" class="cursor-pointer node"
-        data-album="Short n’ Sweet" data-artist="Sabrina Carpenter" data-year="2024"/>
+      <image href="assets/venus_and_mars.jpg" x="343" y="400" width="100" height="100"
+             class="cursor-pointer node" data-album="Venus and Mars" data-artist="Paul McCartney and Wings" data-year="1975"/>
 
-      <!-- Year markers -->
-      <text x="50" y="750" text-anchor="middle" class="text-sm">1963</text>
-      <text x="287" y="750" text-anchor="middle" class="text-sm">1966</text>
-      <text x="314" y="750" text-anchor="middle" class="text-sm">1967</text>
-      <text x="355" y="750" text-anchor="middle" class="text-sm">1969</text>
-      <text x="369" y="750" text-anchor="middle" class="text-sm">1970</text>
-      <text x="383" y="770" text-anchor="middle" class="text-sm">1971</text>
-      <text x="425" y="750" text-anchor="middle" class="text-sm">1973</text>
-      <text x="453" y="750" text-anchor="middle" class="text-sm">1975</text>
-      <text x="565" y="750" text-anchor="middle" class="text-sm">1982</text>
-      <text x="1237" y="750" text-anchor="middle" class="text-sm">1991</text>
-      <text x="1251" y="770" text-anchor="middle" class="text-sm">1993</text>
-      <text x="1460" y="750" text-anchor="middle" class="text-sm">2012</text>
-      <text x="1474" y="770" text-anchor="middle" class="text-sm">2013</text>
-      <text x="1596" y="750" text-anchor="middle" class="text-sm">2021</text>
-      <text x="1624" y="750" text-anchor="middle" class="text-sm">2023</text>
-      <text x="1638" y="750" text-anchor="middle" class="text-sm">2024</text>
+      <image href="assets/tug_of_war.jpg" x="507" y="300" width="100" height="100"
+             class="cursor-pointer node" data-album="Tug of War" data-artist="Paul McCartney" data-year="1982"/>
+
+      <image href="assets/nevermind.jpg" x="747" y="200" width="100" height="100"
+             class="cursor-pointer node" data-album="Nevermind" data-artist="Nirvana" data-year="1991"/>
+
+      <image href="assets/off_the_ground.jpg" x="800" y="400" width="100" height="100"
+             class="cursor-pointer node" data-album="Off the Ground" data-artist="Paul McCartney" data-year="1993"/>
+
+      <image href="assets/born_to_die.jpg" x="1260" y="300" width="100" height="100"
+             class="cursor-pointer node" data-album="Born to Die" data-artist="Lana Del Rey" data-year="2012"/>
+      <image href="assets/new.jpg" x="1287" y="450" width="100" height="100"
+             class="cursor-pointer node" data-album="New" data-artist="Paul McCartney" data-year="2013"/>
+
+      <image href="assets/sour.jpg" x="1552" y="300" width="100" height="100"
+             class="cursor-pointer node" data-album="Sour" data-artist="Olivia Rodrigo" data-year="2021"/>
+
+      <image href="assets/guts.jpg" x="1600" y="200" width="100" height="100"
+             class="cursor-pointer node" data-album="Guts" data-artist="Olivia Rodrigo" data-year="2023"/>
+      <image href="assets/sns.jpg" x="1627" y="400" width="100" height="100"
+             class="cursor-pointer node" data-album="Short n’ Sweet" data-artist="Sabrina Carpenter" data-year="2024"/>
     </svg>
 
     <!-- Tooltip -->
     <div id="tooltip" 
-      class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-sm text-sm opacity-0 pointer-events-none transition-opacity">
+         class="absolute bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg max-w-sm text-sm opacity-0 pointer-events-none transition-opacity">
       Album info
     </div>
+
+    <!-- Year Labels -->
+    <div class="relative mt-8">
+      <svg viewBox="0 0 1700 100" class="w-full h-[100px]">
+        <text x="50" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1963</text>
+        <text x="130" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1966</text>
+        <text x="157" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1967</text>
+        <text x="210" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1969</text>
+        <text x="237" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1970</text>
+        <text x="263" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1971</text>
+        <text x="316" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1973</text>
+        <text x="343" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1975</text>
+        <text x="507" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1982</text>
+        <text x="747" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1991</text>
+        <text x="800" y="50" text-anchor="middle" class="fill-gray-700 text-sm">1993</text>
+        <text x="1260" y="50" text-anchor="middle" class="fill-gray-700 text-sm">2012</text>
+        <text x="1287" y="50" text-anchor="middle" class="fill-gray-700 text-sm">2013</text>
+        <text x="1552" y="50" text-anchor="middle" class="fill-gray-700 text-sm">2021</text>
+        <text x="1600" y="50" text-anchor="middle" class="fill-gray-700 text-sm">2023</text>
+        <text x="1627" y="80" text-anchor="middle" class="fill-gray-700 text-sm">2024</text>
+      </svg>
+    </div>
+
   </main>
 
   <script>
@@ -118,31 +119,25 @@
 
     nodes.forEach(node => {
       node.addEventListener('mouseenter', e => {
-        const album = e.target.dataset.album;
-        const artist = e.target.dataset.artist;
-        const year = e.target.dataset.year;
-        const info = e.target.dataset.info;
-
+        const { album, artist, year, info } = e.target.dataset;
         tooltip.innerHTML = `
           <div class="text-sm">
-            <div><strong>Album:</strong> ${album}</div>
-            <div><strong>Artist:</strong> ${artist}</div>
-            <div><strong>Year:</strong> ${year}</div>
+            <div><strong>Album:</strong> ${album || ""}</div>
+            <div><strong>Artist:</strong> ${artist || ""}</div>
+            <div><strong>Year:</strong> ${year || ""}</div>
             ${info ? `<div><strong>Cool Info:</strong> ${info}</div>` : ""}
           </div>
         `;
         tooltip.style.opacity = 1;
       });
-
-      node.addEventListener('mouseleave', () => {
-        tooltip.style.opacity = 0;
-      });
+      node.addEventListener('mouseleave', () => { tooltip.style.opacity = 0; });
     });
 
     document.addEventListener('mousemove', e => {
-      tooltip.style.left = e.clientX + 15 + 'px';
-      tooltip.style.top = e.clientY + 15 + 'px';
+      tooltip.style.left = (e.clientX + 15) + 'px';
+      tooltip.style.top  = (e.clientY + 15) + 'px';
     });
   </script>
+
 </body>
 </html>
