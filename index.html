@@ -150,11 +150,23 @@
       <h3 class="text-2xl font-bold">Get in touch</h3>
       <p class="mt-2 text-gray-600">Feel free to mail on either mail ids.</p>
       <div class="mt-4 grid md:grid-cols-3 gap-4">
-        <a href="mailto:viralc22@iitk.ac.in" class="p-3 rounded-md border">viralc22@iitk.ac.in</a>
-        <a href="mailto:viralchitlangia@gmail.com" class="p-3 rounded-md border">viralchitlangia@gmail.com</a>
-        <span class="p-3 rounded-md border">+91-86193-01736</span>
+        <button onclick="copyToClipboard('viralc22@iitk.ac.in')" class="p-3 rounded-md border hover:bg-gray-100">viralc22@iitk.ac.in</button>
+        <button onclick="copyToClipboard('viralchitlangia@gmail.com')" class="p-3 rounded-md border hover:bg-gray-100">viralchitlangia@gmail.com</button>
+        <button onclick="copyToClipboard('+91-86193-01736')" class="p-3 rounded-md border hover:bg-gray-100">+91-86193-01736</button>
       </div>
     </section>
+
+    <script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const msg = document.getElementById("copyMsg");
+      msg.classList.remove("hidden");
+      msg.textContent = `Copied: ${text}`;
+      setTimeout(() => msg.classList.add("hidden"), 2000);
+    });
+  }
+</script>
+    
   </main>
 
   <!-- Footer -->
