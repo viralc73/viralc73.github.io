@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Stuff — Viral Chitlangia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900 font-sans">
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Viral Chitlangia</h1>
+      <ul class="flex space-x-6 items-center">
+        <li><a href="index.html" class="hover:text-blue-500">Home</a></li>
+        <li><a href="fun.html" class="text-blue-600 font-semibold">Fun Stuff</a></li>
+        <li><a href="movies.html" class="hover:text-blue-500">Cool Movies</a></li>
+        <li><a href="music.html" class="hover:text-blue-500">Cool Albums</a></li>
+        <li><a href="quotes.html" class="hover:text-blue-500">Cool Quotes</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto p-6 space-y-8">
+    <h2 class="text-3xl font-semibold">Fun Stuff 🎉</h2>
+    <p class="text-lg text-gray-700">
+      Welcome to the Fun Stuff section! This is where I collect things that I enjoy—movies, music, quotes, and more.  
+      Use the tabs above to dive deeper into each category, or just hang around here for a general overview.
+    </p>
+
+    <!-- Lucky Button Section -->
+    <div class="text-center">
+      <button id="luckyBtn" 
+        class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 hover:scale-105 transition transform duration-200">
+        I Feel Lucky
+      </button>
+
+      <!-- Animated Fun Fact Box -->
+      <div id="factBox" 
+        class="mt-6 p-6 bg-white rounded-xl shadow-lg text-lg text-gray-800 opacity-0 scale-90 transition transform duration-500 ease-out">
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const facts = [
+      "Honey never spoils — archaeologists found 3000-year-old honey still edible.",
+      "Bananas are berries, but strawberries aren’t.",
+      "Sharks existed before trees.",
+      "Octopuses have three hearts.",
+      "A day on Venus is longer than a year on Venus."
+    ];
+
+    const btn = document.getElementById("luckyBtn");
+    const factBox = document.getElementById("factBox");
+
+    btn.addEventListener("click", () => {
+      const randomFact = facts[Math.floor(Math.random() * facts.length)];
+      factBox.textContent = randomFact;
+
+      // reset animation state
+      factBox.classList.remove("opacity-100", "scale-100");
+      factBox.classList.add("opacity-0", "scale-90");
+
+      // trigger reflow so animation restarts
+      void factBox.offsetWidth;
+
+      // animate in
+      factBox.classList.remove("opacity-0", "scale-90");
+      factBox.classList.add("opacity-100", "scale-100");
+    });
+  </script>
+</body>
+</html>
