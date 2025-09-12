@@ -55,8 +55,17 @@
     const btn = document.getElementById("luckyBtn");
     const factBox = document.getElementById("factBox");
 
+    let lastFact = ""; // keep track of previous fact
+
     btn.addEventListener("click", () => {
-      const randomFact = facts[Math.floor(Math.random() * facts.length)];
+      let randomFact;
+
+      // keep picking until it's different from lastFact
+      do {
+        randomFact = facts[Math.floor(Math.random() * facts.length)];
+      } while (randomFact === lastFact && facts.length > 1);
+
+      lastFact = randomFact;
       factBox.textContent = randomFact;
 
       // reset animation state
