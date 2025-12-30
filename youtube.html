@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Videos — Viral Chitlangia</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between">
+      <h1 class="text-lg font-semibold">Viral Chitlangia</h1>
+      <nav class="flex gap-4 text-sm">
+        <a href="index.html" class="hover:text-blue-500">Home</a>
+        <a href="youtube.html" class="text-blue-600 font-semibold">YouTube</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-4xl font-extrabold mb-8">🎥 My YouTube Videos</h2>
+    <p class="text-gray-600 mb-10">Here are some videos from my channel — grouped by category.</p>
+
+    <!-- CATEGORY 1 -->
+    <section class="mb-12">
+      <h3 class="text-2xl font-bold mb-4">📌 Educational / Statistics</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <!-- Video Card -->
+        <div class="bg-white rounded-xl shadow p-4">
+          <iframe class="w-full h-60 rounded-lg"
+            src="https://www.youtube.com/embed/VIDEO_ID_1"
+            title="YouTube video player" allowfullscreen></iframe>
+          <h4 class="mt-3 font-semibold">Title of Video 1</h4>
+        </div>
+
+        <div class="bg-white rounded-xl shadow p-4">
+          <iframe class="w-full h-60 rounded-lg"
+            src="https://www.youtube.com/embed/VIDEO_ID_2"
+            title="YouTube video player" allowfullscreen></iframe>
+          <h4 class="mt-3 font-semibold">Title of Video 2</h4>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORY 2 -->
+    <section class="mb-12">
+      <h3 class="text-2xl font-bold mb-4">🎭 Fun / Creative</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <div class="bg-white rounded-xl shadow p-4">
+          <iframe class="w-full h-60 rounded-lg"
+            src="https://www.youtube.com/embed/VIDEO_ID_3"
+            allowfullscreen></iframe>
+          <h4 class="mt-3 font-semibold">Title of Video 3</h4>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ADD MORE CATEGORIES AS NEEDED -->
+    
+  </main>
+
+  <footer class="py-8 text-center text-sm text-gray-500">© <script>document.write(new Date().getFullYear())</script> Viral Chitlangia — Built with ❤️</footer>
+</body>
+</html>
